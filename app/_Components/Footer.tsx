@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const Footers = styled.footer`
   background-color: black;
@@ -12,6 +13,13 @@ const Footers = styled.footer`
   align-items: center;
   color: white;
   padding: 40px 5px;
+
+  & p{
+    color: grey;
+    width: 380px;
+    line-height: 25px;
+    text-align: center;
+  }
 `;
 
 const List = styled(Link)`
@@ -54,7 +62,7 @@ const Footer = () => {
         helping you get the most out of personal audio. Come and visit our demo
         facility - we’re open 7 days a week.
       </p>
-      <p>logos</p>
+      <Logo/>
     </Footers>
   );
 };
