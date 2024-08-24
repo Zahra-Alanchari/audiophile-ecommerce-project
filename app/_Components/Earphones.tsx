@@ -8,20 +8,14 @@ import { RootState } from "@/Type/type";
 
 const SpeakerImg = styled(Image)`
   position: absolute;
-  /* width: 100px;
-  height: 100px; */
-  /* top: 180px; */
   left: 0%;
   background-color: transparent;
   border-radius: 10px;
-  /* mix-blend-mode: hard-light; */
 `;
 
 const ProductItem = styled.div`
-  /* background-color: lightgrey; */
   width: 250px;
   height: 250px;
-  /* margin-top: 100px; */
   position: relative;
   padding: 50px;
 `;
@@ -30,20 +24,28 @@ const Detail = styled.div`
   background-color: lightgrey;
   position: absolute;
   width: 350px;
-  height: 250px;
-  top: 320px;
+  height: 200px;
+  top: 280px;
   left: 0;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  & button {
+    width: 150px;
+    border: 1px solid black;
+    color: black;
+    height: 50px;
+    background-color: transparent;
+    font-weight: bold;
+  }
 `;
 
 const Earphones = () => {
-  const data = useSelector((state:RootState) => state.job.job);
-  console.log(data[0],"data2")
-   
+  const data = useSelector((state: RootState) => state.job.job);
+  console.log(data[0], "data2");
+
   return (
     <>
       <ProductItem>
@@ -51,12 +53,10 @@ const Earphones = () => {
           src={earphone}
           alt="test"
           width={350}
-          height={250}
+          height={200}
         ></SpeakerImg>
-        {/* <img src={pattern} alt="test2" /> */}
         <Detail>
-          <h2>ZX9 SPEAKER</h2>
-          <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound. </p>
+          <h2> YX1 EARPHONES</h2>
           <button> SEE PRODUCT</button>
         </Detail>
       </ProductItem>

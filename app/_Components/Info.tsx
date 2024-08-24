@@ -16,13 +16,17 @@ const Infos = styled.div`
   position: relative;
   padding: 50px;
   justify-content: center;
+  text-align: center;
+  line-height: 30px;
+  & p{
+    color: grey;
+  }
 `;
 
 const Info = () => {
   return (
     <>
       <Infos>
-        <div>
           <InfoImg src={pics} alt="test" width={350} height={250}></InfoImg>
           <h1>
             BRINGING YOU THE <span style={{ color: "orange" }}>BEST</span> AUDIO
@@ -36,7 +40,6 @@ const Info = () => {
             products. Stop by our store to meet some of the fantastic people who
             make Audiophile the best place to buy your portable audio equipment.
           </p>
-        </div>
       </Infos>
     </>
   );

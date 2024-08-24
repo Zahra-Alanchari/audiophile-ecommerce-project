@@ -7,32 +7,47 @@ const Footers = styled.footer`
   margin-top: 400px;
   width: 100%;
   display: flex;
-  /* flex: 1 0 0 ; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  /* list-style-type:none; */
+  padding: 40px 5px;
+`;
+
+const List = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
+const NavList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
 `;
 
 const Footer = () => {
   return (
     <Footers>
       <h1>audiophile</h1>
-      <ul>
+      <NavList>
         <li>
-          <Link href={"/"}>Home</Link>
+          <List href={"/"}>Home</List>
         </li>
         <li>
-          <Link href={"/speaker"}>Speakers</Link>
+          <List href={"/speaker"}>Speakers</List>
         </li>
         <li>
-          <Link href={"/headphone"}>Headphones</Link>
+          <List href={"/headphone"}>Headphones</List>
         </li>
         <li>
-          <Link href={"/earphones"}>earphones</Link>
+          <List href={"/earphones"}>earphones</List>
         </li>
-      </ul>
+      </NavList>
       <p>
         Audiophile is an all in one stop to fulfill your audio needs. We're a
         small team of music lovers and sound specialists who are devoted to

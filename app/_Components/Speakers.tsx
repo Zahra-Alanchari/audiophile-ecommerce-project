@@ -2,40 +2,40 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 import pattern from "../../public/assets/home/desktop/pattern-circles.svg";
-import speakerZX9 from "../../public/assets/shared/tablet/image-zx9-speaker.jpg";
-import speakerZX7 from "../../public/assets/product-zx7-speaker/mobile/image-gallery-3.jpg"
+import speakerZX9 from "../../public/assets/home/mobile/image-speaker-zx9.png";
+import speakerZX7 from "../../public/assets/home/mobile/image-speaker-zx7.png";
 
 const SpeakerZX9Img = styled(Image)`
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 180px;
-  left: 35%;
+  width: 200px;
+  height: 210px;
+  top: 100px;
+  left: 50%;
+  transform: translatex(-50%);
   background-color: transparent;
-  /* mix-blend-mode: hard-light; */
 `;
 const SpeakerZX7Img = styled(Image)`
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 100px;
-  left: 35%;
+  top: 0;
+  right: 0;
   background-color: transparent;
-  /* mix-blend-mode: hard-light; */
 `;
 
 const ProductZX9 = styled.div`
-  background-color: orange;
+  background-color: #cc7101;
+  border-radius: 10px;
   width: 250px;
   height: 500px;
   margin-top: 50px;
   position: relative;
   padding: 50px;
+  overflow: hidden;
 `;
 const ProductZX7 = styled.div`
-  background-color: orange;
+  background-color: #dfdfdf;
+  border-radius: 10px;
   width: 250px;
-  height: 250px;
+  height: 200px;
   margin-top: 100px;
   position: relative;
   padding: 50px;
@@ -43,17 +43,48 @@ const ProductZX7 = styled.div`
 
 const Detail = styled.div`
   position: absolute;
-  /* width: 100px;
-  height: 100px; */
-  top: 280px;
-  left: 25%;
+  top: 330px;
+  left: 50%;
+  transform: translatex(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & h2 {
+    width: 100px;
+    color: white;
+    text-align: center;
+  }
+  & p {
+    color: #f8cf83;
+    width: 250px;
+    text-align: center;
+    line-height: 20px;
+  }
+  & button {
+    width: 150px;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border: 0;
+  }
 `;
 const DetailZX7 = styled.div`
   position: absolute;
-  /* width: 100px;
-  height: 100px; */
-  top: 180px;
+  top: 100px;
   left: 15%;
+  & button{
+    width: 150px;
+    border:1px solid black;
+    color: black;
+    height: 50px;
+    background-color: transparent;
+    font-weight: bold;
+  }
+`;
+const PatternLogo = styled(Image)`
+  position: absolute;
+  left: -125px;
+  top: -120px;
 `;
 
 const Speakers = () => {
@@ -66,10 +97,18 @@ const Speakers = () => {
           width={300}
           height={300}
         ></SpeakerZX9Img>
-        <img src={pattern} alt="test2" />
+        <PatternLogo
+          src={pattern}
+          width={600}
+          height={650}
+          alt="test2"
+        ></PatternLogo>
         <Detail>
           <h2>ZX9 SPEAKER</h2>
-          <p>uupgrade </p>
+          <p>
+            Upgrade to premium speakers that are phenomenally built to deliver
+            truly remarkable sound.
+          </p>
           <button> SEE PRODUCT</button>
         </Detail>
       </ProductZX9>
@@ -80,10 +119,8 @@ const Speakers = () => {
           width={300}
           height={300}
         ></SpeakerZX7Img>
-        <img src={pattern} alt="test2" />
         <DetailZX7>
-          <h2>ZX9 SPEAKER</h2>
-          <p>uupgrade </p>
+          <h2>ZX7 SPEAKER</h2>
           <button> SEE PRODUCT</button>
         </DetailZX7>
       </ProductZX7>
