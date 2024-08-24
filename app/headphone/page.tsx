@@ -9,6 +9,7 @@ import pi from "../../public/assets/product-xx99-mark-one-headphones/mobile/imag
 import Navbar from "../_Components/Navbar";
 import Footer from "../_Components/Footer";
 import styled from "styled-components";
+import { updateSelectedId } from "@/redux/slice";
 
 const HeadphoneItems = styled.div`
   width: 350px;
@@ -39,6 +40,13 @@ const page = () => {
   }, [dispatch]);
   const headphone = data.filter((item) => item.category === "headphones");
   console.log(headphone, "headphones");
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.currentTarget.id; 
+    dispatch(updateSelectedId(target));
+  };
+  const idd = useSelector((state: RootState) => state.job.id);
+  console.log(idd,"ids")
   return (
     <>
       <Navbar />
@@ -48,7 +56,7 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <button>see product</button>
+            <button id={String(item.id)} key={item.id} onClick={handleClick}>see product</button>
           </Detail>
         </HeadphoneItems>
       ))}

@@ -1,13 +1,13 @@
-"use client"
-import { fetchgetAllJobs } from '@/redux/action';
-import { AppDispatch } from '@/redux/store';
-import { RootState } from '@/Type/type';
-import React, { useEffect } from 'react';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import Navbar from '../_Components/Navbar';
-import Footer from '../_Components/Footer';
-import styled from 'styled-components';
-
+"use client";
+import { fetchgetAllJobs } from "@/redux/action";
+import { AppDispatch } from "@/redux/store";
+import { RootState } from "@/Type/type";
+import React, { useEffect } from "react";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import Navbar from "../_Components/Navbar";
+import Footer from "../_Components/Footer";
+import styled from "styled-components";
+import { updateSelectedId } from "@/redux/slice";
 
 const EarphoneItems = styled.div`
   width: 350px;
@@ -30,17 +30,23 @@ const Detail = styled.div`
 `;
 
 const page = () => {
-   
-    const data = useSelector((state: RootState) => state.job.job);
-    const dispatch = useDispatch<AppDispatch>();
-  
-    useEffect(() => {
-      dispatch(fetchgetAllJobs());
-    }, [dispatch]);
-    const earphone = data.filter((item) => item.category === "earphones");
-    console.log(earphone, "earphone");
-    return (
-        <>
+  const data = useSelector((state: RootState) => state.job.job);
+  const idd = useSelector((state: RootState) => state.job.id);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchgetAllJobs());
+  }, [dispatch]);
+  const earphone = data.filter((item) => item.category === "earphones");
+  console.log(earphone, "earphone");
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.currentTarget.id; 
+    dispatch(updateSelectedId(target));
+  };
+  console.log(idd, "click");
+  return (
+    <>
       <Navbar />
       {earphone.map((item) => (
         <EarphoneItems key={item.id}>
@@ -48,13 +54,13 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <button>see product</button>
+            <button id={String(item.id)} key={item.id} onClick={handleClick}>see product</button>
           </Detail>
         </EarphoneItems>
       ))}
       <Footer />
     </>
-    );
+  );
 };
 
 export default page;

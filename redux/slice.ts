@@ -11,7 +11,7 @@ const jobSlice = createSlice({
   name: "jobs",
   initialState,
   reducers: {
-    updateInput(state, action) {
+    updateSelectedId(state, action) {
       state.id = action.payload;
     },
   },
@@ -22,5 +22,5 @@ const jobSlice = createSlice({
   },
 });
 
-export const { updateInput } = jobSlice.actions;
+export const { updateSelectedId } = jobSlice.actions;
 export default jobSlice.reducer;

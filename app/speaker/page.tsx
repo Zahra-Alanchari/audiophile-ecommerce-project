@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../_Components/Navbar';
 import styled from 'styled-components';
 import Footer from '../_Components/Footer';
+import { updateSelectedId } from '@/redux/slice';
 
 const SpeakerItems = styled.div`
   width: 350px;
@@ -39,6 +40,13 @@ const page = () => {
     }, [dispatch]);
     const speaker = data.filter((item) => item.category === "speakers");
     console.log(speaker, "speaker");
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      const target = e.currentTarget.id; 
+      dispatch(updateSelectedId(target));
+    };
+    const idd = useSelector((state: RootState) => state.job.id);
+  console.log(idd,"idss")
     return (
         <>
       <Navbar />
@@ -48,7 +56,7 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <button>see product</button>
+            <button id={String(item.id)} key={item.id} onClick={handleClick}>see product</button>
           </Detail>
         </SpeakerItems>
       ))}
