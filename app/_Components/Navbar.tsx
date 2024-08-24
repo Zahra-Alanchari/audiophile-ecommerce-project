@@ -69,7 +69,7 @@ const Navbar = () => {
         width={30}
         height={30}
         alt="test"
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal(!showModal)}
       ></BurgurIcon>
       <h1>audiophile</h1>
       <Link href={"/checkOut"}>
