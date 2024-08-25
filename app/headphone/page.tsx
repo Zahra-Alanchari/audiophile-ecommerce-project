@@ -10,6 +10,7 @@ import Navbar from "../_Components/Navbar";
 import Footer from "../_Components/Footer";
 import styled from "styled-components";
 import { updateSelectedId } from "@/redux/slice";
+import Link from "next/link";
 
 const HeadphoneItems = styled.div`
   width: 350px;
@@ -42,11 +43,11 @@ const page = () => {
   console.log(headphone, "headphones");
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const target = e.currentTarget.id; 
+    const target = e.currentTarget.id;
     dispatch(updateSelectedId(target));
   };
   const idd = useSelector((state: RootState) => state.job.id);
-  console.log(idd,"ids")
+  console.log(idd, "ids");
   return (
     <>
       <Navbar />
@@ -56,7 +57,11 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <button id={String(item.id)} key={item.id} onClick={handleClick}>see product</button>
+            <Link href={`/headphone/${item.id}`}>
+              <button id={String(item.id)} key={item.id} onClick={handleClick}>
+                see product
+              </button>
+            </Link>
           </Detail>
         </HeadphoneItems>
       ))}
