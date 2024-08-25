@@ -4,9 +4,9 @@ import { AppDispatch } from "@/redux/store";
 import { RootState } from "@/Type/type";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../_Components/Navbar";
+import Navbar from "../_Components/Navbar/Navbar";
 import styled from "styled-components";
-import Footer from "../_Components/Footer";
+import Footer from "../_Components/Footer/Footer";
 import { updateSelectedId } from "@/redux/slice";
 import Link from "next/link";
 
