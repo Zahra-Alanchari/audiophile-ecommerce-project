@@ -10,7 +10,7 @@ export const SpeakerImg = styled(Image)`
     left: -53%;
   }
   @media screen and (min-width:1440px) {
-    left: 7px;
+    left: -25px;
     width: 550px;
     height: 250px;
   }
@@ -41,7 +41,7 @@ export const Detail = styled.div`
   }
   @media screen and (min-width:1440px) {
     top: 51px;
-    left: 580px;
+    left: 535px;
     width: 550px;
     height: 250px;
   }

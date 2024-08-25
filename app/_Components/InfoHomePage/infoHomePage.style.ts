@@ -34,7 +34,7 @@ export const Infos = styled.div`
   }
   @media screen and (min-width: 1440px) {
     margin-top: 100px;
-    left: -8%;
+    left: -11%;
     flex-wrap: nowrap;
     align-items: center;
     text-align: start;
