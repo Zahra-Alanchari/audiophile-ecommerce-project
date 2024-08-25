@@ -5,6 +5,9 @@ import styled from "styled-components";
 import burgur from "../../public/assets/shared/tablet/icon-hamburger.svg";
 import basket from "../../public/assets/shared/desktop/icon-cart.svg";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/Type/type";
+import { AppDispatch } from "@/redux/store";
 
 const Nav = styled.nav`
   background-color: black;
@@ -41,8 +44,23 @@ const Button = styled.button`
   width: 50px;
   height: 50px;
 `;
+const BasketCount = styled.span`
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  top: -20px;
+  right: 35px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+`;
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
+  const data = useSelector((state: RootState) => state.job.cart);
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <Nav>
       {showModal && (
@@ -74,6 +92,7 @@ const Navbar = () => {
       <h1>audiophile</h1>
       <Link href={"/checkOut"}>
         <BasketIcon src={basket} width={30} height={30} alt="test"></BasketIcon>
+        {data > 0 && <BasketCount>{data}</BasketCount>}
       </Link>
     </Nav>
   );

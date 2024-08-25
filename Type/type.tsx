@@ -45,6 +45,10 @@ export interface RootState {
   job: {
     job: Job["data"];
     id: number | null;
+    earphone: number;
+    headphone: number;
+    speaker: number;
+    cart: number
   };
 }
 

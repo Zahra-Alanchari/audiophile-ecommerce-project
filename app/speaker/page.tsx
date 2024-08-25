@@ -38,14 +38,11 @@ const page = () => {
     dispatch(fetchgetAllJobs());
   }, [dispatch]);
   const speaker = data.filter((item) => item.category === "speakers");
-  console.log(speaker, "speaker");
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget.id;
     dispatch(updateSelectedId(target));
   };
-  const idd = useSelector((state: RootState) => state.job.id);
-  console.log(idd, "idss");
   return (
     <>
       <Navbar />
@@ -55,7 +52,7 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <Link href={`/speaker/${item.id}`}>
+            <Link href={`/speaker/${item.slug}`}>
               <button id={String(item.id)} key={item.id} onClick={handleClick}>
                 see product
               </button>

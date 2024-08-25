@@ -4,6 +4,7 @@ import styled from "styled-components";
 import pattern from "../../public/assets/home/desktop/pattern-circles.svg";
 import speakerZX9 from "../../public/assets/home/mobile/image-speaker-zx9.png";
 import speakerZX7 from "../../public/assets/home/mobile/image-speaker-zx7.png";
+import Link from "next/link";
 
 const SpeakerZX9Img = styled(Image)`
   position: absolute;
@@ -66,19 +67,21 @@ const Detail = styled.div`
     color: white;
     height: 50px;
     border: 0;
+    cursor: pointer;
   }
 `;
 const DetailZX7 = styled.div`
   position: absolute;
   top: 100px;
   left: 15%;
-  & button{
+  & button {
     width: 150px;
-    border:1px solid black;
+    border: 1px solid black;
     color: black;
     height: 50px;
     background-color: transparent;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
 const PatternLogo = styled(Image)`
@@ -109,7 +112,9 @@ const Speakers = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <button> SEE PRODUCT</button>
+          <Link href={"/speaker/zx9-speaker"}>
+            <button> SEE PRODUCT</button>
+          </Link>
         </Detail>
       </ProductZX9>
       <ProductZX7>
@@ -121,7 +126,9 @@ const Speakers = () => {
         ></SpeakerZX7Img>
         <DetailZX7>
           <h2>ZX7 SPEAKER</h2>
-          <button> SEE PRODUCT</button>
+          <Link href={"/speaker/zx7-speaker"}>
+            <button> SEE PRODUCT</button>
+          </Link>
         </DetailZX7>
       </ProductZX7>
     </>

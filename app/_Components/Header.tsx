@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import bg from "../../public/assets/home/mobile/image-header.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Headers = styled.header`
   display: flex;
@@ -69,7 +70,9 @@ const Header = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </TitleDescription>
-        <ButtonProduct> SEE PRODUCT</ButtonProduct>
+        <Link href={"/headphone/xx99-mark-two-headphones"}>
+          <ButtonProduct> SEE PRODUCT</ButtonProduct>
+        </Link>
       </Intro>
     </Headers>
   );

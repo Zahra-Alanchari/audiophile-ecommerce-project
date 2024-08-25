@@ -3,7 +3,7 @@ import { fetchgetAllJobs } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
 import { RootState } from "@/Type/type";
 import React, { useEffect } from "react";
-import { Provider, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../_Components/Navbar";
 import Footer from "../_Components/Footer";
 import styled from "styled-components";
@@ -32,20 +32,17 @@ const Detail = styled.div`
 
 const page = () => {
   const data = useSelector((state: RootState) => state.job.job);
-  const idd = useSelector((state: RootState) => state.job.id);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchgetAllJobs());
   }, [dispatch]);
   const earphone = data.filter((item) => item.category === "earphones");
-  console.log(earphone, "earphone");
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget.id;
     dispatch(updateSelectedId(target));
   };
-  console.log(idd, "click");
   return (
     <>
       <Navbar />
@@ -55,7 +52,7 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <Link href={`/earphones/${item.id}`}>
+            <Link href={`/earphones/${item.slug}`}>
               <button id={String(item.id)} key={item.id} onClick={handleClick}>
                 see product
               </button>

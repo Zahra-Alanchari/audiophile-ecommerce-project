@@ -10,6 +10,8 @@ const InfoImg = styled(Image)`
 const Infos = styled.div`
   width: 350px;
   top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;

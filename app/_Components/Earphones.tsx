@@ -5,6 +5,7 @@ import earphone from "../../public/assets/product-yx1-earphones/mobile/image-gal
 import { useDispatch, useSelector } from "react-redux";
 import { fetchgetAllJobs } from "@/redux/action";
 import { RootState } from "@/Type/type";
+import Link from "next/link";
 
 const SpeakerImg = styled(Image)`
   position: absolute;
@@ -39,6 +40,7 @@ const Detail = styled.div`
     height: 50px;
     background-color: transparent;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
 
@@ -57,7 +59,9 @@ const Earphones = () => {
         ></SpeakerImg>
         <Detail>
           <h2> YX1 EARPHONES</h2>
-          <button> SEE PRODUCT</button>
+          <Link href={"/earphones/yx1-earphones"}>
+            <button> SEE PRODUCT</button>
+          </Link>
         </Detail>
       </ProductItem>
     </>

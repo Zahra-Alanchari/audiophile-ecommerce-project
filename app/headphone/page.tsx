@@ -2,10 +2,8 @@
 import { fetchgetAllJobs } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
 import { RootState } from "@/Type/type";
-import Image from "next/image";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import pi from "../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
 import Navbar from "../_Components/Navbar";
 import Footer from "../_Components/Footer";
 import styled from "styled-components";
@@ -57,7 +55,7 @@ const page = () => {
           <Detail>
             <h1>{item.name}</h1>
             <p>{item.description}</p>
-            <Link href={`/headphone/${item.id}`}>
+            <Link href={`/headphone/${item.slug}`}>
               <button id={String(item.id)} key={item.id} onClick={handleClick}>
                 see product
               </button>

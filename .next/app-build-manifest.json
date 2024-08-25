@@ -39,6 +39,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/speaker/[speakerId]/page.js"
+    ],
+    "/checkOut/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/checkOut/page.js"
     ]
   }
 }
