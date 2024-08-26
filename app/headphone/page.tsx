@@ -38,14 +38,14 @@ const page = () => {
     dispatch(fetchgetAllProduct());
   }, [dispatch]);
   const headphone = data.filter((item) => item.category === "headphones");
-  console.log(headphone, "headphones");
+  // console.log(headphone, "headphones");
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget.id;
     dispatch(updateSelectedId(target));
   };
-  const idd = useSelector((state: RootState) => state.job.id);
-  console.log(idd, "ids");
+  // const idd = useSelector((state: RootState) => state.job.id);
+  // console.log(idd, "ids");
   return (
     <>
       <Navbar />

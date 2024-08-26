@@ -16,10 +16,7 @@ import {
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const data = useSelector((state: RootState) => state.job.shoppingItem);
-  // const totalCount = data.reduce((total, item) => {
-  //   return total + (item.count || 0);
-  // }, 0);
-  // console.log(totalCount,"t count")
+  const totalCount = data.reduce((acc, product) =>   acc + (product?.count ? product.count: 0), 0);
   return (
     <Nav>
       {showModal && (
@@ -51,7 +48,7 @@ const Navbar = () => {
       <h1>audiophile</h1>
       <Link href={"/checkOut"}>
         <BasketIcon src={basket} width={30} height={30} alt="test"></BasketIcon>
-        {data.length > 0 && <BasketCount>{data.length}</BasketCount>}
+        {data.length > 0 && <BasketCount>{totalCount}</BasketCount>}
       </Link>
     </Nav>
   );

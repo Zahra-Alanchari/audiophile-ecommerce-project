@@ -39,8 +39,8 @@ const jobSlice = createSlice({
       const existingItem = state.shoppingItem.find(
         (item) => item.id === selectedItem.id
       );
-      console.log(selectedItem, "sele");
-      console.log(count, "coun");
+      // console.log(selectedItem, "sele");
+      // console.log(count, "coun");
       // state.shoppingItem = [...state.shoppingItem, action.payload];
 
       if (existingItem) {
