@@ -33,10 +33,10 @@ import {
 export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount, setProductCount] = useState(0);
   const { headphoneId } = params;
-  const data = useSelector((state: RootState) => state.job.job);
-  // const dataselect = useSelector((state: RootState) => state.job.shoppingItem);
+  const data = useSelector((state: RootState) => state.product.product);
+
   const headphoneCounter = useSelector(
-    (state: RootState) => state.job.headphone
+    (state: RootState) => state.product.headphone
   );
   const dispatch = useDispatch<AppDispatch>();
 

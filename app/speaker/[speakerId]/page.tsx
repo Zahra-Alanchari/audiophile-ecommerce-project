@@ -33,9 +33,9 @@ import {
 export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount,setProductCount]=useState(0)
   const { speakerId } = params;
-  const data = useSelector((state: RootState) => state.job.job);
-  const speakerCounter = useSelector((state: RootState) => state.job.speaker);
-  const dataselect = useSelector((state: RootState) => state.job.shoppingItem);
+  const data = useSelector((state: RootState) => state.product.product);
+  const speakerCounter = useSelector((state: RootState) => state.product.speaker);
+  const dataselect = useSelector((state: RootState) => state.product.shoppingItem);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -64,7 +64,6 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     dispatch(sumCard(speakerCounter));
     setProductCount(0)
   }
-  console.log(dataselect, "data select");
 
   return (
     <>

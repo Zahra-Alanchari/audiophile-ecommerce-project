@@ -15,7 +15,7 @@ import {
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
-  const data = useSelector((state: RootState) => state.job.shoppingItem);
+  const data = useSelector((state: RootState) => state.product.shoppingItem);
   const totalCount = data.reduce((acc, product) =>   acc + (product?.count ? product.count: 0), 0);
   return (
     <Nav>

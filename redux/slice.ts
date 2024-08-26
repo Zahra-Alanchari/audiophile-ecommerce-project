@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchgetAllProduct } from "./action";
 import { RootState } from "@/Type/type";
 
-const initialState: RootState["job"] = {
-  job: [],
+const initialState: RootState["product"] = {
+  product: [],
   id: null,
   headphone: 0,
   earphone: 0,
@@ -15,8 +15,8 @@ const initialState: RootState["job"] = {
   
 };
 
-const jobSlice = createSlice({
-  name: "jobs",
+const productSlice = createSlice({
+  name: "Products",
   initialState,
   reducers: {
     updateSelectedId(state, action) {
@@ -58,7 +58,7 @@ const jobSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchgetAllProduct.fulfilled, (state, action) => {
-      state.job = action.payload;
+      state.product = action.payload;
     });
   },
 });
@@ -70,5 +70,5 @@ export const {
   speakerCount,
   sumCard,
   addToShoppingCart,
-} = jobSlice.actions;
-export default jobSlice.reducer;
+} = productSlice.actions;
+export default productSlice.reducer;

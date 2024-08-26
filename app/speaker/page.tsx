@@ -10,6 +10,7 @@ import Footer from "../_Components/Footer/Footer";
 import { updateSelectedId } from "@/redux/slice";
 import Link from "next/link";
 
+
 const SpeakerItems = styled.div`
   width: 350px;
   margin: 50px auto;
@@ -32,7 +33,7 @@ const Detail = styled.div`
 `;
 
 const page = () => {
-  const data = useSelector((state: RootState) => state.job.job);
+  const data = useSelector((state: RootState) => state.product.product);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

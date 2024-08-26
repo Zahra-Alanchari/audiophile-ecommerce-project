@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import jobReducer from './slice'
+import productReducer from './slice'
 
 const store = configureStore({
     reducer:{
-        job:jobReducer
+        product:productReducer
     }
 })
 export type AppDispatch = typeof store.dispatch;

@@ -20,7 +20,7 @@ const Summary = styled.div`
 `;
 
 const CheckOutBill = () => {
-  const dataselect = useSelector((state: RootState) => state.job.shoppingItem);
+  const dataselect = useSelector((state: RootState) => state.product.shoppingItem);
   // console.log(dataselect, "count koo");
   const totalCost = dataselect.reduce((acc, item) => {
     return acc + item.price * (item?.count ? item.count : 0);

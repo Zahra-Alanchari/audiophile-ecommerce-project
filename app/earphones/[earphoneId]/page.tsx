@@ -33,9 +33,9 @@ import {
 export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount, setProductCount] = useState(0);
   const { earphoneId } = params;
-  const data = useSelector((state: RootState) => state.job.job);
-  const dataselect = useSelector((state: RootState) => state.job.shoppingItem);
-  const earphoneCounter = useSelector((state: RootState) => state.job.earphone);
+  const data = useSelector((state: RootState) => state.product.product);
+  const dataselect = useSelector((state: RootState) => state.product.shoppingItem);
+  const earphoneCounter = useSelector((state: RootState) => state.product.earphone);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

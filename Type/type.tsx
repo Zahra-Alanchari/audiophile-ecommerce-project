@@ -1,4 +1,4 @@
-export interface Job {
+export interface Product {
   data: Array<ProductDetail>;
 }
 export interface ProductDetail {
@@ -44,8 +44,8 @@ export interface OtherDetail {
 }
 
 export interface RootState {
-  job: {
-    job: Job["data"];
+  product: {
+    product: Product["data"];
     id: number | null;
     earphone: number;
     headphone: number;

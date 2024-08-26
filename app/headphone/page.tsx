@@ -31,7 +31,7 @@ const Detail = styled.div`
 `;
 
 const page = () => {
-  const data = useSelector((state: RootState) => state.job.job);
+  const data = useSelector((state: RootState) => state.product.product);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
