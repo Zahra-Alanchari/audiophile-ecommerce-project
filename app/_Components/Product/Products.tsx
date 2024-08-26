@@ -4,8 +4,6 @@ import speakerCategory from "../../../public/assets/home/mobile/image-speaker-zx
 import earphoneCategory from "../../../public/assets/category-earphones/mobile/image-yx1-earphones.png";
 import { HeadphoneProduct, ProductImage, StyledLink } from "./product.style";
 
-
-
 const Products = () => {
   return (
     <>
@@ -18,7 +16,8 @@ const Products = () => {
         ></ProductImage>
         <h2>HEADPHONES</h2>
         <StyledLink href={"/headphone"}>
-          SHOP <span style={{ color: "#c28411", marginLeft: "10px" }}> &gt;</span>
+          SHOP{" "}
+          <span style={{ color: "#c28411", marginLeft: "10px" }}> &gt;</span>
         </StyledLink>
       </HeadphoneProduct>
       <HeadphoneProduct>
@@ -30,7 +29,8 @@ const Products = () => {
         ></ProductImage>
         <h2>SPEAKERS</h2>
         <StyledLink href={"/speaker"}>
-          SHOP <span style={{ color: "#c28411",marginLeft: "10px" }}>&gt;</span>{" "}
+          SHOP{" "}
+          <span style={{ color: "#c28411", marginLeft: "10px" }}>&gt;</span>{" "}
         </StyledLink>
       </HeadphoneProduct>
       <HeadphoneProduct>
@@ -43,7 +43,10 @@ const Products = () => {
         <h2>EARPHONES</h2>
         <StyledLink href={"/earphones"}>
           SHOP
-          <span style={{ color: "#c28411",marginLeft: "10px" }}> &gt; </span>{" "}
+          <span style={{ color: "#c28411", marginLeft: "10px" }}>
+            {" "}
+            &gt;{" "}
+          </span>{" "}
         </StyledLink>
       </HeadphoneProduct>
     </>

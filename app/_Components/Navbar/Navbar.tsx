@@ -3,16 +3,23 @@ import React, { useState } from "react";
 import burgur from "../../../public/assets/shared/tablet/icon-hamburger.svg";
 import basket from "../../../public/assets/shared/desktop/icon-cart.svg";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "@/Type/type";
-import { AppDispatch } from "@/redux/store";
-import { BasketCount, BasketIcon, BurgurIcon, Dialog, Nav } from "./navbar.style";
-
+import {
+  BasketCount,
+  BasketIcon,
+  BurgurIcon,
+  Dialog,
+  Nav,
+} from "./navbar.style";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
-  const data = useSelector((state: RootState) => state.job.cart);
-  const dispatch = useDispatch<AppDispatch>();
+  const data = useSelector((state: RootState) => state.job.shoppingItem);
+  // const totalCount = data.reduce((total, item) => {
+  //   return total + (item.count || 0);
+  // }, 0);
+  // console.log(totalCount,"t count")
   return (
     <Nav>
       {showModal && (
@@ -44,7 +51,7 @@ const Navbar = () => {
       <h1>audiophile</h1>
       <Link href={"/checkOut"}>
         <BasketIcon src={basket} width={30} height={30} alt="test"></BasketIcon>
-        {data > 0 && <BasketCount>{data}</BasketCount>}
+        {data.length > 0 && <BasketCount>{data.length}</BasketCount>}
       </Link>
     </Nav>
   );

@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styled from "styled-components";
 import React from "react";
 import pattern from "../../../public/assets/home/desktop/pattern-circles.svg";
 import speakerZX9 from "../../../public/assets/home/mobile/image-speaker-zx9.png";

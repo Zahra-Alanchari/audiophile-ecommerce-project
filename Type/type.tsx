@@ -1,7 +1,7 @@
 export interface Job {
-  data: Array<JobDetail>;
+  data: Array<ProductDetail>;
 }
-export interface JobDetail {
+export interface ProductDetail {
   id: number;
   slug: string;
   name: string;
@@ -14,6 +14,8 @@ export interface JobDetail {
   includes: Array<IncludeDetail>;
   gallery: GalleryDetail;
   others: Array<OtherDetail>;
+  count?: number;
+  
 }
 
 export interface ImageDetail {
@@ -48,7 +50,9 @@ export interface RootState {
     earphone: number;
     headphone: number;
     speaker: number;
-    cart: number
+    cart: number;
+    shoppingItem: Array<ProductDetail>;
+    identify: Array<string>;
   };
 }
 

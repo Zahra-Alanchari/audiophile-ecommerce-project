@@ -1,11 +1,11 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchgetAllJobs } from "@/redux/action";
+import { fetchgetAllProduct } from "@/redux/action";
 import { ProductDetailProps, RootState } from "@/Type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
-import { speakerCount, sumCard } from "@/redux/slice";
+import { addToShoppingCart, sumCard } from "@/redux/slice";
 import Footer from "@/app/_Components/Footer/Footer";
 import Navbar from "@/app/_Components/Navbar/Navbar";
 import Info from "@/app/_Components/Info/Info";
@@ -31,13 +31,15 @@ import {
 } from "@/app/_Style/page.style";
 
 export default function ProductDetails({ params }: ProductDetailProps) {
+  const [productCount,setProductCount]=useState(0)
   const { speakerId } = params;
   const data = useSelector((state: RootState) => state.job.job);
   const speakerCounter = useSelector((state: RootState) => state.job.speaker);
+  const dataselect = useSelector((state: RootState) => state.job.shoppingItem);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchgetAllJobs());
+    dispatch(fetchgetAllProduct());
   }, [dispatch]);
 
   const product = data.find((item) => String(item.slug) === speakerId);
@@ -47,17 +49,22 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   }
 
   function decreaseHandelClick() {
-    const count = speakerCounter - 1;
-    dispatch(speakerCount(count));
+    setProductCount(productCount-1)
   }
   function IncreaseHandelClick() {
-    const count = speakerCounter + 1;
-    dispatch(speakerCount(count));
+    setProductCount(productCount+1)
   }
-  function handleClickBuyProduct() {
-    const count = speakerCounter;
+  
+  function handleClickBuyProduct(e: React.MouseEvent<HTMLButtonElement>) {
+    const targetId = e.currentTarget.id;
+    const selectedItem = data.find((item) => item.id.toString() === targetId);
+    if (productCount > 0) {
+      dispatch(addToShoppingCart({selectedItem, count :productCount}));
+    }
     dispatch(sumCard(speakerCounter));
+    setProductCount(0)
   }
+  console.log(dataselect, "data select");
 
   return (
     <>
@@ -79,10 +86,10 @@ export default function ProductDetails({ params }: ProductDetailProps) {
             <CartCounter>
               <ProductCount>
                 <button onClick={decreaseHandelClick}>-</button>
-                <span>{speakerCounter}</span>
+                <span>{productCount}</span>
                 <button onClick={IncreaseHandelClick}>+</button>
               </ProductCount>
-              <AddToCartBtn onClick={handleClickBuyProduct}>
+              <AddToCartBtn id={product.id.toString()} onClick={handleClickBuyProduct}>
                 ADD TO CART
               </AddToCartBtn>
             </CartCounter>

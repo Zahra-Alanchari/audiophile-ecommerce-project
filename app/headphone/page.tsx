@@ -1,5 +1,5 @@
 "use client";
-import { fetchgetAllJobs } from "@/redux/action";
+import { fetchgetAllProduct } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
 import { RootState } from "@/Type/type";
 import React, { useEffect } from "react";
@@ -35,7 +35,7 @@ const page = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchgetAllJobs());
+    dispatch(fetchgetAllProduct());
   }, [dispatch]);
   const headphone = data.filter((item) => item.category === "headphones");
   console.log(headphone, "headphones");

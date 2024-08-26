@@ -1,5 +1,5 @@
 "use client";
-import { fetchgetAllJobs } from "@/redux/action";
+import { fetchgetAllProduct } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
 import { RootState } from "@/Type/type";
 import React, { useEffect } from "react";
@@ -27,6 +27,7 @@ const Detail = styled.div`
     background-color: #cc7101;
     color: white;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
 
@@ -35,7 +36,7 @@ const page = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchgetAllJobs());
+    dispatch(fetchgetAllProduct());
   }, [dispatch]);
   const speaker = data.filter((item) => item.category === "speakers");
 

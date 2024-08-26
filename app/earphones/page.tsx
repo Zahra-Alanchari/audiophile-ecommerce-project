@@ -1,5 +1,5 @@
 "use client";
-import { fetchgetAllJobs } from "@/redux/action";
+import { fetchgetAllProduct } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
 import { RootState } from "@/Type/type";
 import React, { useEffect } from "react";
@@ -32,10 +32,11 @@ const Detail = styled.div`
 
 const page = () => {
   const data = useSelector((state: RootState) => state.job.job);
+  // console.log(data,"data100")
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchgetAllJobs());
+    dispatch(fetchgetAllProduct());
   }, [dispatch]);
   const earphone = data.filter((item) => item.category === "earphones");
 

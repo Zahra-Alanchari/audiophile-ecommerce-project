@@ -1,28 +1,47 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchgetAllJobs } from "@/redux/action";
+import { fetchgetAllProduct } from "@/redux/action";
 import { ProductDetailProps, RootState } from "@/Type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
-import { earphoneCount, headphoneCount, sumCard } from "@/redux/slice";
+import { addToShoppingCart, sumCard } from "@/redux/slice";
 import Footer from "@/app/_Components/Footer/Footer";
 import Navbar from "@/app/_Components/Navbar/Navbar";
 import Info from "@/app/_Components/Info/Info";
 import Products from "@/app/_Components/Product/Products";
-import { AddToCartBtn, BackLink, CartCounter, Detail, EarphoneItems, Feature, FirstBoxImg, ImageBox, InTHeBox, NewProduct, ProductCartWrapper, ProductCount, ProductProfileWrapper, ProductWrapper, RecommendProduct, SecondBoxImg, SeeProductBtn } from "@/app/_Style/page.style";
-
-
+import {
+  AddToCartBtn,
+  BackLink,
+  CartCounter,
+  Detail,
+  EarphoneItems,
+  Feature,
+  FirstBoxImg,
+  ImageBox,
+  InTHeBox,
+  NewProduct,
+  ProductCartWrapper,
+  ProductCount,
+  ProductProfileWrapper,
+  ProductWrapper,
+  RecommendProduct,
+  SecondBoxImg,
+  SeeProductBtn,
+} from "@/app/_Style/page.style";
 
 export default function ProductDetails({ params }: ProductDetailProps) {
+  const [productCount, setProductCount] = useState(0);
   const { headphoneId } = params;
   const data = useSelector((state: RootState) => state.job.job);
-  const basketCart = useSelector((state: RootState) => state.job.cart);
-  const headphoneCounter = useSelector((state:RootState) => state.job.headphone);
+  // const dataselect = useSelector((state: RootState) => state.job.shoppingItem);
+  const headphoneCounter = useSelector(
+    (state: RootState) => state.job.headphone
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchgetAllJobs());
+    dispatch(fetchgetAllProduct());
   }, [dispatch]);
 
   const product = data.find((item) => String(item.slug) === headphoneId);
@@ -31,20 +50,22 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     return <p>Product not found</p>;
   }
 
-  function decreaseHandelClick(){
-    const count = headphoneCounter-1
-    dispatch(headphoneCount(count))
+  function decreaseHandelClick() {
+    setProductCount(productCount - 1);
   }
-  function IncreaseHandelClick(){
-    const count = (headphoneCounter)+1
-    dispatch(headphoneCount(count))
+  function IncreaseHandelClick() {
+    setProductCount(productCount + 1);
   }
-function handleClickBuyProduct(){
-  const count = headphoneCounter
-  dispatch(sumCard(headphoneCounter))
-}
 
-
+  function handleClickBuyProduct(e: React.MouseEvent<HTMLButtonElement>) {
+    const targetId = e.currentTarget.id;
+    const selectedItem = data.find((item) => item.id.toString() === targetId);
+    if (productCount > 0) {
+      dispatch(addToShoppingCart({ selectedItem, count: productCount }));
+    }
+    dispatch(sumCard(headphoneCounter));
+    setProductCount(0);
+  }
   return (
     <>
       <Navbar />
@@ -65,10 +86,13 @@ function handleClickBuyProduct(){
             <CartCounter>
               <ProductCount>
                 <button onClick={decreaseHandelClick}>-</button>
-                <span>{headphoneCounter}</span>
+                <span>{productCount}</span>
                 <button onClick={IncreaseHandelClick}>+</button>
               </ProductCount>
-              <AddToCartBtn onClick={handleClickBuyProduct}>
+              <AddToCartBtn
+                id={product.id.toString()}
+                onClick={handleClickBuyProduct}
+              >
                 ADD TO CART
               </AddToCartBtn>
             </CartCounter>
