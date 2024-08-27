@@ -11,16 +11,52 @@ const Product = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: red;
+  /* background-color: red; */
 `;
 const Summary = styled.div`
-  width: 300px;
-  padding: 20px;
-  background-color: grey;
+  width: 350px;
+  margin: 0 auto;
+  /* margin-bottom: 2000px; */
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  /* padding-left:15px; */
+  @media screen and (min-width: 765px) {
+    margin: 21px 0;
+    /* padding: 5px; */
+  }
+  @media screen and (min-width: 1440px) {
+    width: 550px;
+  }
+  & h1 {
+    position: relative;
+    left: 3%;
+  }
+
+  & h4 {
+    text-align: center;
+  }
+  & button {
+    background-color: #cc7101;
+    width: 233px;
+    color: white;
+    height: 41px;
+    border: 0;
+  }
+`;
+const Bill = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const BtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const CheckOutBill = () => {
-  const dataselect = useSelector((state: RootState) => state.product.shoppingItem);
+  const dataselect = useSelector(
+    (state: RootState) => state.product.shoppingItem
+  );
   // console.log(dataselect, "count koo");
   const totalCost = dataselect.reduce((acc, item) => {
     return acc + item.price * (item?.count ? item.count : 0);
@@ -33,7 +69,6 @@ const CheckOutBill = () => {
       <>
         {dataselect.map((item) => (
           <Product>
-            
             <div>
               <ProductImage src={item.image.mobile} alt=""></ProductImage>
             </div>
@@ -48,26 +83,30 @@ const CheckOutBill = () => {
       {dataselect.length > 0 ? (
         <>
           <div>
-            <div>
+            <Bill>
               <h3>TOTAL</h3>
               <p>${totalCost}</p>
-            </div>
-            <div>
+            </Bill>
+            <Bill>
               <h3>SHIPPING</h3>
               <p>${shipping}</p>
-            </div>
-            <div>
+            </Bill>
+            <Bill>
               <h3>VAT(INCLUDES)</h3>
               <p>$1000</p>
-            </div>
-            <div>
-              <h3>GRAND TOTAL</h3>
+            </Bill>
+            <Bill>
+              <h2>GRAND TOTAL</h2>
               <p>{totalCost + shipping}</p>
-            </div>
+            </Bill>
           </div>
-          <button>CONTINUE & PAY</button>
+          <BtnWrapper>
+            <button>CONTINUE & PAY</button>
+          </BtnWrapper>
         </>
-      ):<h3>NO ITEM ADDED</h3>}
+      ) : (
+        <h4>NO ITEM ADDED</h4>
+      )}
     </Summary>
   );
 };

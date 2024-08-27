@@ -27,6 +27,7 @@ export const Infos = styled.div`
   justify-content: center;
   text-align: center;
   line-height: 30px;
+  margin-bottom:400px;
   @media screen and (min-width: 760px) {
     width: 700px;
     margin-top: -210px;

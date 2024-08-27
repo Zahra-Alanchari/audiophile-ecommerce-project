@@ -5,7 +5,7 @@ export const InfoImg = styled(Image)`
   background-color: transparent;
   border-radius: 10px;
   width: 330px;
-  margin: 0;
+  margin: 0px;
   @media screen and (min-width: 760px) {
     width: 850px;
     height: 350px;
@@ -27,6 +27,7 @@ export const Infos = styled.div`
   justify-content: center;
   text-align: center;
   line-height: 30px;
+  margin-bottom: 400px;
   @media screen and (min-width: 760px) {
     width: 700px;
     margin-top: -210px;
