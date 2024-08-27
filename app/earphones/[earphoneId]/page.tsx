@@ -6,8 +6,6 @@ import { ProductDetailProps, RootState } from "@/Type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import { addToShoppingCart, sumCard } from "@/redux/slice";
-import Footer from "@/app/_Components/Footer/Footer";
-import Navbar from "@/app/_Components/Navbar/Navbar";
 import Info from "@/app/_Components/Info/Info";
 import Products from "@/app/_Components/Product/Products";
 import {
@@ -35,6 +33,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount, setProductCount] = useState(0);
   const { earphoneId } = params;
   const data = useSelector((state: RootState) => state.product.product);
+  const product = data.find((item) => item.slug === earphoneId);
   const dataselect = useSelector(
     (state: RootState) => state.product.shoppingItem
   );
@@ -47,7 +46,6 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     dispatch(fetchgetAllProduct());
   }, [dispatch]);
 
-  const product = data.find((item) => item.slug === earphoneId);
 
   if (!product) {
     return <p>Product not found</p>;
@@ -70,12 +68,10 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     dispatch(sumCard(earphoneCounter));
     setProductCount(0);
   }
-  console.log(dataselect, "data select");
 
   const router = useRouter();
   return (
     <>
-      {/* <Navbar /> */}
       <EarphoneItems key={product.id}>
         <BackLink
           onClick={(e) => {
@@ -158,7 +154,6 @@ export default function ProductDetails({ params }: ProductDetailProps) {
         <Products />
       </ProductWrapper>
       <Info />
-      {/* <Footer /> */}
     </>
   );
 }

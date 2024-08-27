@@ -35,13 +35,13 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   const data = useSelector((state: RootState) => state.product.product);
   const speakerCounter = useSelector((state: RootState) => state.product.speaker);
   const dataselect = useSelector((state: RootState) => state.product.shoppingItem);
+  const product = data.find((item) => String(item.slug) === speakerId);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchgetAllProduct());
   }, [dispatch]);
 
-  const product = data.find((item) => String(item.slug) === speakerId);
 
   if (!product) {
     return <p>Product not found</p>;
@@ -70,7 +70,6 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   const router= useRouter()
   return (
     <>
-      {/* <Navbar /> */}
       <EarphoneItems key={product.id}>
       <BackLink onClick={(e) => { e.preventDefault(); router.back(); }}>Go back</BackLink>
         <ProductProfileWrapper>
@@ -143,7 +142,6 @@ export default function ProductDetails({ params }: ProductDetailProps) {
         <Products />
       </ProductWrapper>
       <Info />
-      {/* <Footer /> */}
     </>
   );
 }

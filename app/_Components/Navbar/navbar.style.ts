@@ -28,13 +28,12 @@ export const Dialog = styled.dialog`
   z-index: 1;
   background-color: #000000d6;
   padding-top: 159px;
-  /* margin: 0 auto; */
+
   flex-direction: column;
   align-items: center;
   & ul {
     list-style-type: none;
     & li {
-      /* color: white; */
       padding: 25px;
 
       & a {

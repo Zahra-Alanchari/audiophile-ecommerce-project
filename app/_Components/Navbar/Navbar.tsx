@@ -36,7 +36,7 @@ const Navbar = () => {
               <Link href={"/earphones"}>earphones</Link>
             </li>
           </ul>
-          {/* <button onClick={() => setShowModal(false)}>close</button> */}
+          
         </Dialog>
       )}
       <BurgurIcon

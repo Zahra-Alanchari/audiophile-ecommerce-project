@@ -119,7 +119,7 @@ export const ImageBox = styled.div`
     transform: scale(1.4);
     @media screen and (min-width: 1440px) {
       transform: scale(1.2);
-  }
+    }
   }
   @media screen and (min-width: 760px) {
     margin-bottom: 100px;
@@ -295,5 +295,114 @@ export const RecommendProduct = styled.div`
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 150px;
+  }
+`;
+
+
+export const CheckRout = styled.div`
+  @media screen and (min-width: 765px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 30px;
+  }
+`;
+// export const BackLink = styled.button`
+//   text-decoration: none;
+//   color: grey;
+//   border: 0;
+//   background-color: transparent;
+//   padding: 20px;
+// `;
+
+export const DetailEarphoneItems = styled.div`
+  width: 350px;
+  margin: 50px auto;
+`;
+export const DetailEarphone = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 30px;
+  & button {
+    width: 150px;
+    height: 40px;
+    border: 0;
+    background-color: #cc7101;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #cc7101;
+      transform: scale(1.1);
+    }
+    &:active {
+      background-color: #cc7101;
+      transform: translateY(0.2rem);
+    }
+  }
+`;
+
+export const DetailHeadphoneItems = styled.div`
+  width: 350px;
+  margin: 50px auto;
+`;
+export const DetailHeadphone = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 30px;
+  & button {
+    width: 150px;
+    height: 40px;
+    border: 0;
+    background-color: #cc7101;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #cc7101;
+      transform: scale(1.1);
+    }
+    &:active {
+      background-color: #cc7101;
+      transform: translateY(0.2rem);
+    }
+  }
+`;
+
+export const DetailSpeakerItems = styled.div`
+  width: 350px;
+  margin: 50px auto;
+`;
+export const DetailSpeaker = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 30px;
+  & button {
+    width: 150px;
+    height: 40px;
+    border: 0;
+    background-color: #cc7101;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #cc7101;
+      transform: scale(1.1);
+    }
+    &:active {
+      background-color: #cc7101;
+      transform: translateY(0.2rem);
+    }
   }
 `;

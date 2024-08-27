@@ -98,7 +98,6 @@ export const Detail = styled.div`
       transform: scale(1.1);
     }
     &:active {
-      /* background-color: #cc7101; */
       transform: translateY(0.2rem);
     }
   }
@@ -131,7 +130,6 @@ export const DetailZX7 = styled.div`
     }
     &:active {
       transition: all 0.2s;
-      /* background-color: #cc7101; */
       transform: translateY(0.2rem);
     }
   }

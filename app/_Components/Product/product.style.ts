@@ -9,11 +9,9 @@ export const HeadphoneProduct = styled.div`
   margin-top: 100px;
   position: relative;
   padding: 30px;
-  &:hover{
-
+  &:hover {
     transition: all 0.2s;
-    /* background-color: #cc7101; */
-    transform:  scale(1.3);
+    transform: scale(1.3);
     z-index: 10;
     background-color: #dfdfdf;
   }
@@ -32,7 +30,6 @@ export const HeadphoneProduct = styled.div`
   }
 `;
 
-
 export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
@@ -43,24 +40,20 @@ export const StyledLink = styled(Link)`
   transition: transform 0.3s;
 
   &:hover {
-    transform:  scale(1.5);
+    transform: scale(1.5);
     transition: all 0.2s;
     color: #cc7101;
   }
-  &:active{
+  &:active {
     transition: all 0.2s;
     color: #cc7101;
-    transform: translateY(.2rem) scale(1.5);
+    transform: translateY(0.2rem) scale(1.5);
   }
 `;
 export const ProductImage = styled(Image)`
   position: absolute;
-  /* width: 100px;
-  height: 100px; */
   top: -40px;
   left: 37%;
   background-color: transparent;
   color: #c28411;
-  /* margin: 0; */
-  /* mix-blend-mode: hard-light; */
 `;
