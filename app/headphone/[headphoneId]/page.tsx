@@ -29,6 +29,7 @@ import {
   SecondBoxImg,
   SeeProductBtn,
 } from "@/app/_Style/page.style";
+import { useRouter } from "next/navigation";
 
 export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount, setProductCount] = useState(0);
@@ -51,7 +52,9 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   }
 
   function decreaseHandelClick() {
-    setProductCount(productCount - 1);
+    if (productCount > 0) {
+      setProductCount(productCount - 1);
+    }
   }
   function IncreaseHandelClick() {
     setProductCount(productCount + 1);
@@ -66,11 +69,19 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     dispatch(sumCard(headphoneCounter));
     setProductCount(0);
   }
+  const router = useRouter();
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <EarphoneItems key={product.id}>
-        <BackLink href={"/headphone"}>Go back</BackLink>
+        <BackLink
+          onClick={(e) => {
+            e.preventDefault();
+            router.back();
+          }}
+        >
+          Go back
+        </BackLink>
         <ProductProfileWrapper>
           <img
             src={`/${product.image.mobile}`}
@@ -144,7 +155,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
         <Products />
       </ProductWrapper>
       <Info />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

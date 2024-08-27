@@ -11,6 +11,7 @@ const Product = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
   /* background-color: red; */
 `;
 const Summary = styled.div`
@@ -32,7 +33,7 @@ const Summary = styled.div`
     left: 3%;
   }
 
-  & h4 {
+  & h5 {
     text-align: center;
   }
   & button {
@@ -41,17 +42,24 @@ const Summary = styled.div`
     color: white;
     height: 41px;
     border: 0;
+    margin-bottom: 20px; 
+    cursor: pointer;
   }
 `;
 const Bill = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px ;
 `;
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+const TotalBillCost = styled.p`
+  color: #cc7101;
+`
 
 const CheckOutBill = () => {
   const dataselect = useSelector(
@@ -84,20 +92,20 @@ const CheckOutBill = () => {
         <>
           <div>
             <Bill>
-              <h3>TOTAL</h3>
+              <h5>TOTAL</h5>
               <p>${totalCost}</p>
             </Bill>
             <Bill>
-              <h3>SHIPPING</h3>
+              <h5>SHIPPING</h5>
               <p>${shipping}</p>
             </Bill>
             <Bill>
-              <h3>VAT(INCLUDES)</h3>
+              <h5>VAT(INCLUDES)</h5>
               <p>$1000</p>
             </Bill>
             <Bill>
-              <h2>GRAND TOTAL</h2>
-              <p>{totalCost + shipping}</p>
+              <h5>GRAND TOTAL</h5>
+              <TotalBillCost>{totalCost + shipping}</TotalBillCost>
             </Bill>
           </div>
           <BtnWrapper>
@@ -105,7 +113,7 @@ const CheckOutBill = () => {
           </BtnWrapper>
         </>
       ) : (
-        <h4>NO ITEM ADDED</h4>
+        <h5>NO ITEM ADDED</h5>
       )}
     </Summary>
   );

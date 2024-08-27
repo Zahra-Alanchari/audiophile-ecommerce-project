@@ -28,6 +28,15 @@ export const AddToCartBtn = styled.button`
   font-weight: bold;
   margin-left: 10px;
   cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    background-color: #cc7101;
+    transform: scale(1.1);
+  }
+  &:active {
+    background-color: #cc7101;
+    transform: translateY(0.2rem);
+  }
   @media screen and (min-width: 1440px) {
     width: 250px;
     height: 60px;
@@ -103,6 +112,15 @@ export const ImageBox = styled.div`
   display: flex;
   position: relative;
   left: -20px;
+  cursor: pointer;
+  & img:hover {
+    transition: all 0.2s;
+    z-index: 10;
+    transform: scale(1.4);
+    @media screen and (min-width: 1440px) {
+      transform: scale(1.2);
+  }
+  }
   @media screen and (min-width: 760px) {
     margin-bottom: 100px;
   }
@@ -175,10 +193,23 @@ export const SeeProductBtn = styled.button`
   margin-bottom: 20px;
   color: white;
   cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    background-color: #cc7101;
+    transform: scale(1.1);
+  }
+  &:active {
+    background-color: #cc7101;
+    transform: translateY(0.2rem);
+  }
 `;
-export const BackLink = styled(Link)`
+export const BackLink = styled.button`
   text-decoration: none;
   color: grey;
+  border: 0;
+  background-color: transparent;
+  padding: 20px;
+  cursor: pointer;
 `;
 export const NewProduct = styled.h3`
   color: #cc7101;

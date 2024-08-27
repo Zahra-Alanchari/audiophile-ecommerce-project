@@ -42,6 +42,9 @@ export const NavList = styled.ul`
   align-items: center;
   gap: 20px;
   margin: 20px 0;
+  & a:hover{
+    color: #cc7101;
+  }
   @media screen and (min-width: 760px) {
     flex-direction: row;
   }

@@ -19,18 +19,44 @@ export const BasketIcon = styled(Image)`
   cursor: pointer;
 `;
 export const Dialog = styled.dialog`
-  top: 66px;
+  top: 1px;
   color: white;
   width: 100%;
   height: 200%;
   position: fixed;
   display: flex;
   z-index: 1;
-  background-color: #534e4e99;
+  background-color: #000000d6;
   padding-top: 159px;
   /* margin: 0 auto; */
   flex-direction: column;
   align-items: center;
+  & ul {
+    list-style-type: none;
+    & li {
+      /* color: white; */
+      padding: 25px;
+
+      & a {
+        text-decoration: none;
+        color: white;
+        &:hover {
+          color: #cc7101;
+        }
+      }
+    }
+    font-size: 2rem;
+  }
+  & button {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    background-color: #cc7101;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 `;
 export const Button = styled.button`
   width: 50px;

@@ -16,7 +16,7 @@ const Products = () => {
         ></ProductImage>
         <h2>HEADPHONES</h2>
         <StyledLink href={"/headphone"}>
-          SHOP{" "}
+          SHOP
           <span style={{ color: "#c28411", marginLeft: "10px" }}> &gt;</span>
         </StyledLink>
       </HeadphoneProduct>
@@ -29,7 +29,7 @@ const Products = () => {
         ></ProductImage>
         <h2>SPEAKERS</h2>
         <StyledLink href={"/speaker"}>
-          SHOP{" "}
+          SHOP
           <span style={{ color: "#c28411", marginLeft: "10px" }}>&gt;</span>{" "}
         </StyledLink>
       </HeadphoneProduct>

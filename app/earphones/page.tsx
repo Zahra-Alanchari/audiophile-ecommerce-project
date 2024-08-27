@@ -9,6 +9,8 @@ import Footer from "../_Components/Footer/Footer";
 import styled from "styled-components";
 import { updateSelectedId } from "@/redux/slice";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { BackLink } from "../_Style/page.style";
 
 const EarphoneItems = styled.div`
   width: 350px;
@@ -27,10 +29,21 @@ const Detail = styled.div`
     background-color: #cc7101;
     color: white;
     font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #cc7101;
+      transform: scale(1.1);
+    }
+    &:active {
+      background-color: #cc7101;
+      transform: translateY(0.2rem);
+    }
   }
 `;
 
 const page = () => {
+  const router = useRouter();
   const data = useSelector((state: RootState) => state.product.product);
   // console.log(data,"data100")
   const dispatch = useDispatch<AppDispatch>();
@@ -46,7 +59,15 @@ const page = () => {
   };
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <BackLink
+        onClick={(e) => {
+          e.preventDefault();
+          router.back();
+        }}
+      >
+        Go back
+      </BackLink>
       {earphone.map((item) => (
         <EarphoneItems key={item.id}>
           <img src={item.image.mobile} alt="test" width={350} height={350} />
@@ -61,7 +82,7 @@ const page = () => {
           </Detail>
         </EarphoneItems>
       ))}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

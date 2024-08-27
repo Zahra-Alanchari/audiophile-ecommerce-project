@@ -16,12 +16,12 @@ export default function Home() {
   // }, [dispatch]);
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Header />
       <Contents />
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

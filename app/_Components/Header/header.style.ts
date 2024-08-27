@@ -18,6 +18,10 @@ export const Intro = styled.div`
 
 export const HeaderImg = styled(Image)`
   flex-grow: 1;
+  width: 359px;
+  @media screen and (min-width: 375px) {
+    width: 100%;
+  }
 `;
 export const ButtonProduct = styled.button`
   width: 160px;
@@ -27,6 +31,15 @@ export const ButtonProduct = styled.button`
   color: white;
   font-size: 1rem;
   cursor: pointer;
+  &:hover{
+    background-color: #cc7101;
+    transform: scale(1.1);
+  }
+  &:active{
+    transition: all 0.2s;
+    background-color: #cc7101;
+    transform: translateY(.2rem);
+  }
 `;
 export const TitleNew = styled.h4`
   color: darkgray;

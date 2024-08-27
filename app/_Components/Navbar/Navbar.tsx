@@ -13,6 +13,7 @@ import {
   Nav,
 } from "./navbar.style";
 
+
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const data = useSelector((state: RootState) => state.product.shoppingItem);
@@ -21,7 +22,7 @@ const Navbar = () => {
     <Nav>
       {showModal && (
         <Dialog open>
-          <ul>
+          <ul onClick={() => setShowModal(false)}>
             <li>
               <Link href={"/"}>Home</Link>
             </li>
@@ -35,7 +36,7 @@ const Navbar = () => {
               <Link href={"/earphones"}>earphones</Link>
             </li>
           </ul>
-          <button onClick={() => setShowModal(false)}>close</button>
+          {/* <button onClick={() => setShowModal(false)}>close</button> */}
         </Dialog>
       )}
       <BurgurIcon

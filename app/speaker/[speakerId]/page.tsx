@@ -6,8 +6,6 @@ import { ProductDetailProps, RootState } from "@/Type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import { addToShoppingCart, sumCard } from "@/redux/slice";
-import Footer from "@/app/_Components/Footer/Footer";
-import Navbar from "@/app/_Components/Navbar/Navbar";
 import Info from "@/app/_Components/Info/Info";
 import Products from "@/app/_Components/Product/Products";
 import {
@@ -29,6 +27,7 @@ import {
   SecondBoxImg,
   SeeProductBtn,
 } from "@/app/_Style/page.style";
+import { useRouter } from "next/navigation";
 
 export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount,setProductCount]=useState(0)
@@ -49,7 +48,10 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   }
 
   function decreaseHandelClick() {
-    setProductCount(productCount-1)
+    if(productCount>0){
+
+      setProductCount(productCount-1)
+    }
   }
   function IncreaseHandelClick() {
     setProductCount(productCount+1)
@@ -65,11 +67,12 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     setProductCount(0)
   }
 
+  const router= useRouter()
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <EarphoneItems key={product.id}>
-        <BackLink href={"/speaker"}>Go back</BackLink>
+      <BackLink onClick={(e) => { e.preventDefault(); router.back(); }}>Go back</BackLink>
         <ProductProfileWrapper>
           <img
             src={`/${product.image.mobile}`}
@@ -140,7 +143,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
         <Products />
       </ProductWrapper>
       <Info />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

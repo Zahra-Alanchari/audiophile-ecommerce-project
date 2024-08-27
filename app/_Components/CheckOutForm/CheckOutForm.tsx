@@ -54,12 +54,14 @@ const CheckOutContent = styled.div`
   padding: 0 5px;
   position: relative;
   border-radius: 5px;
+  
   @media screen and (min-width: 1440px) {
     width: 800px;
   }
   & h1 {
     position: relative;
     left: 3%;
+    top: 20px;
   }
 `;
 

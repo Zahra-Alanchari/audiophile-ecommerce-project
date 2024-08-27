@@ -93,6 +93,14 @@ export const Detail = styled.div`
     height: 50px;
     border: 0;
     cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      /* background-color: #cc7101; */
+      transform: translateY(0.2rem);
+    }
   }
   @media screen and (min-width: 1440px) {
     top: 100px;
@@ -117,6 +125,15 @@ export const DetailZX7 = styled.div`
     background-color: transparent;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transition: all 0.2s;
+      /* background-color: #cc7101; */
+      transform: translateY(0.2rem);
+    }
   }
   @media screen and (min-width: 1440px) {
     top: 50px;
