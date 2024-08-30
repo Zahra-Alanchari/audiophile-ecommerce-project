@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchgetAllProduct } from "@/redux/action";
-import { ProductDetailProps, RootState } from "@/Type/type";
+import { ProductDetailProps, RootState } from "@/type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import { addToShoppingCart, sumCard } from "@/redux/slice";
@@ -30,48 +30,57 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function ProductDetails({ params }: ProductDetailProps) {
-  const [productCount,setProductCount]=useState(0)
+  const [productCount, setProductCount] = useState(0);
   const { speakerId } = params;
   const data = useSelector((state: RootState) => state.product.product);
-  const speakerCounter = useSelector((state: RootState) => state.product.speaker);
-  const dataselect = useSelector((state: RootState) => state.product.shoppingItem);
   const product = data.find((item) => String(item.slug) === speakerId);
+  const speakerCounter = useSelector(
+    (state: RootState) => state.product.speaker
+  );
+  const dataselect = useSelector(
+    (state: RootState) => state.product.shoppingItem
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchgetAllProduct());
   }, [dispatch]);
 
-
   if (!product) {
     return <p>Product not found</p>;
   }
 
   function decreaseHandelClick() {
-    if(productCount>0){
-
-      setProductCount(productCount-1)
+    if (productCount > 0) {
+      setProductCount(productCount - 1);
     }
   }
-  function IncreaseHandelClick() {
-    setProductCount(productCount+1)
+  function increaseHandelClick() {
+    setProductCount(productCount + 1);
   }
-  
+
   function handleClickBuyProduct(e: React.MouseEvent<HTMLButtonElement>) {
     const targetId = e.currentTarget.id;
     const selectedItem = data.find((item) => item.id.toString() === targetId);
     if (productCount > 0) {
-      dispatch(addToShoppingCart({selectedItem, count :productCount}));
+      dispatch(addToShoppingCart({ selectedItem, count: productCount }));
     }
     dispatch(sumCard(speakerCounter));
-    setProductCount(0)
+    setProductCount(0);
   }
 
-  const router= useRouter()
+  const router = useRouter();
   return (
     <>
       <EarphoneItems key={product.id}>
-      <BackLink onClick={(e) => { e.preventDefault(); router.back(); }}>Go back</BackLink>
+        <BackLink
+          onClick={(e) => {
+            e.preventDefault();
+            router.back();
+          }}
+        >
+          Go back
+        </BackLink>
         <ProductProfileWrapper>
           <img
             src={`/${product.image.mobile}`}
@@ -80,7 +89,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
             height={350}
           />
           <ProductCartWrapper>
-            {product.new && <NewProduct>NEW PRODUCT</NewProduct>}
+            {product.isNew && <NewProduct>NEW PRODUCT</NewProduct>}
             <h1>{product.name}</h1>
             <p>{product.description}</p>
             <h3>${product.price}</h3>
@@ -88,9 +97,12 @@ export default function ProductDetails({ params }: ProductDetailProps) {
               <ProductCount>
                 <button onClick={decreaseHandelClick}>-</button>
                 <span>{productCount}</span>
-                <button onClick={IncreaseHandelClick}>+</button>
+                <button onClick={increaseHandelClick}>+</button>
               </ProductCount>
-              <AddToCartBtn id={product.id.toString()} onClick={handleClickBuyProduct}>
+              <AddToCartBtn
+                id={product.id.toString()}
+                onClick={handleClickBuyProduct}
+              >
                 ADD TO CART
               </AddToCartBtn>
             </CartCounter>

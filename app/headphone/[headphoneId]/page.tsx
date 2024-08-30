@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchgetAllProduct } from "@/redux/action";
-import { ProductDetailProps, RootState } from "@/Type/type";
+import { ProductDetailProps, RootState } from "@/type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import { addToShoppingCart, sumCard } from "@/redux/slice";
@@ -34,16 +34,15 @@ export default function ProductDetails({ params }: ProductDetailProps) {
   const { headphoneId } = params;
   const data = useSelector((state: RootState) => state.product.product);
   const product = data.find((item) => String(item.slug) === headphoneId);
+  const dispatch = useDispatch<AppDispatch>();
 
   const headphoneCounter = useSelector(
     (state: RootState) => state.product.headphone
   );
-  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(fetchgetAllProduct());
   }, [dispatch]);
-
 
   if (!product) {
     return <p>Product not found</p>;
@@ -54,7 +53,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
       setProductCount(productCount - 1);
     }
   }
-  function IncreaseHandelClick() {
+  function increaseHandelClick() {
     setProductCount(productCount + 1);
   }
 
@@ -87,7 +86,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
             height={350}
           />
           <ProductCartWrapper>
-            {product.new && <NewProduct>NEW PRODUCT</NewProduct>}
+            {product.isNew && <NewProduct>NEW PRODUCT</NewProduct>}
             <h1>{product.name}</h1>
             <p>{product.description}</p>
             <h3>${product.price}</h3>
@@ -95,7 +94,7 @@ export default function ProductDetails({ params }: ProductDetailProps) {
               <ProductCount>
                 <button onClick={decreaseHandelClick}>-</button>
                 <span>{productCount}</span>
-                <button onClick={IncreaseHandelClick}>+</button>
+                <button onClick={increaseHandelClick}>+</button>
               </ProductCount>
               <AddToCartBtn
                 id={product.id.toString()}

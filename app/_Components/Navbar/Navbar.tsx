@@ -4,7 +4,7 @@ import burgur from "../../../public/assets/shared/tablet/icon-hamburger.svg";
 import basket from "../../../public/assets/shared/desktop/icon-cart.svg";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { RootState } from "@/Type/type";
+import { RootState } from "@/type/type";
 import {
   BasketCount,
   BasketIcon,
@@ -13,11 +13,13 @@ import {
   Nav,
 } from "./navbar.style";
 
-
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const data = useSelector((state: RootState) => state.product.shoppingItem);
-  const totalCount = data.reduce((acc, product) =>   acc + (product?.count ? product.count: 0), 0);
+  const totalCount = data.reduce(
+    (acc, product) => acc + (product?.count ? product.count : 0),
+    0
+  );
   return (
     <Nav>
       {showModal && (
@@ -36,7 +38,6 @@ const Navbar = () => {
               <Link href={"/earphones"}>earphones</Link>
             </li>
           </ul>
-          
         </Dialog>
       )}
       <BurgurIcon

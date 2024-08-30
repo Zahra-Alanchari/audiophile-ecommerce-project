@@ -1,26 +1,27 @@
 "use client";
 import { fetchgetAllProduct } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
-import { RootState } from "@/Type/type";
+import { RootState } from "@/type/type";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
 import { updateSelectedId } from "@/redux/slice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { BackLink, DetailEarphone, DetailEarphoneItems } from "../_Style/page.style";
-
-
+import {
+  BackLink,
+  DetailEarphone,
+  DetailEarphoneItems,
+} from "../_Style/page.style";
 
 const page = () => {
   const router = useRouter();
   const data = useSelector((state: RootState) => state.product.product);
   const dispatch = useDispatch<AppDispatch>();
+  const earphone = data.filter((item) => item.category === "earphones");
 
   useEffect(() => {
     dispatch(fetchgetAllProduct());
   }, [dispatch]);
-  const earphone = data.filter((item) => item.category === "earphones");
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget.id;

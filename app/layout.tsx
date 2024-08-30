@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <Provider store={store}>
       <html lang="en">
-        <body>
+        <body style={{margin:"0", padding:"0"}}>
           <StyledComponentsRegistry>
             <Navbar />
             {children}

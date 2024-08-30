@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchgetAllProduct } from "./action";
-import { RootState } from "@/Type/type";
+import { RootState } from "@/type/type";
 
 const initialState: RootState["product"] = {
   product: [],
@@ -12,7 +12,6 @@ const initialState: RootState["product"] = {
   cart: 0,
   shoppingItem: [],
   identify: [],
-  
 };
 
 const productSlice = createSlice({
@@ -52,7 +51,6 @@ const productSlice = createSlice({
         };
         console.log(newSelectedItem, "new select");
         state.shoppingItem.push(newSelectedItem);
-
       }
     },
   },

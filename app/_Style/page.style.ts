@@ -309,13 +309,6 @@ export const CheckRout = styled.div`
     margin-top: 30px;
   }
 `;
-// export const BackLink = styled.button`
-//   text-decoration: none;
-//   color: grey;
-//   border: 0;
-//   background-color: transparent;
-//   padding: 20px;
-// `;
 
 export const DetailEarphoneItems = styled.div`
   width: 350px;

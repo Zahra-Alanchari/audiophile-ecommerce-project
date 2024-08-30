@@ -1,10 +1,14 @@
-import { RootState } from "@/Type/type";
+import { RootState } from "@/type/type";
 import React from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { Bill, BtnWrapper, Product, ProductImage, Summary, TotalBillCost } from "./checkOutBill.style";
-
-
+import {
+  Bill,
+  BtnWrapper,
+  Product,
+  ProductImage,
+  Summary,
+  TotalBillCost,
+} from "./checkOutBill.style";
 
 const CheckOutBill = () => {
   const dataselect = useSelector(

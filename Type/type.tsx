@@ -7,7 +7,7 @@ export interface ProductDetail {
   name: string;
   image: ImageDetail;
   category: string;
-  new: boolean;
+  isNew: boolean;
   price: number;
   description: string;
   features: string;
