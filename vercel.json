@@ -1,5 +1,16 @@
 {
   "rewrites": [
-      {"source": "/(.*)", "destination": "/"}
+    {
+      "source": "/data.json",
+      "destination": "/data.json"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/",
+      "destination": "/"
+    }
   ]
 }
