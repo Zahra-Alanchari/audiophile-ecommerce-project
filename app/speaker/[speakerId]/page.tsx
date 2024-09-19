@@ -67,7 +67,8 @@ export default function ProductDetails({ params }: ProductDetailProps) {
     }
     dispatch(sumCard(speakerCounter));
     setProductCount(0);
-  }
+  } 
+  console.log("test")
 
   const router = useRouter();
   return (
