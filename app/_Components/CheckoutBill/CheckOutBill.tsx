@@ -1,4 +1,3 @@
-import { RootState } from "@/type/type";
 import React from "react";
 import { useSelector } from "react-redux";
 import {
@@ -9,6 +8,7 @@ import {
   Summary,
   TotalBillCost,
 } from "./checkOutBill.style";
+import { RootState } from "@/type";
 
 const CheckOutBill = () => {
   const dataselect = useSelector(

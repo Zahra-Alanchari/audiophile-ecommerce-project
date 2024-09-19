@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchgetAllProduct } from "@/redux/action";
-import { ProductDetailProps, RootState } from "@/type/type";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import { addToShoppingCart, sumCard } from "@/redux/slice";
@@ -28,6 +27,7 @@ import {
   SeeProductBtn,
 } from "@/app/_Style/page.style";
 import { useRouter } from "next/navigation";
+import { ProductDetailProps, RootState } from "@/type";
 
 export default function ProductDetails({ params }: ProductDetailProps) {
   const [productCount, setProductCount] = useState(0);

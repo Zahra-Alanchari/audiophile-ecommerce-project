@@ -1,7 +1,6 @@
 "use client";
 import { fetchgetAllProduct } from "@/redux/action";
 import { AppDispatch } from "@/redux/store";
-import { RootState } from "@/type/type";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSelectedId } from "@/redux/slice";
@@ -12,6 +11,7 @@ import {
   DetailEarphone,
   DetailEarphoneItems,
 } from "../_Style/page.style";
+import { RootState } from "@/type";
 
 const page = () => {
   const router = useRouter();

@@ -4,7 +4,6 @@ import burgur from "../../../public/assets/shared/tablet/icon-hamburger.svg";
 import basket from "../../../public/assets/shared/desktop/icon-cart.svg";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { RootState } from "@/type/type";
 import {
   BasketCount,
   BasketIcon,
@@ -12,6 +11,7 @@ import {
   Dialog,
   Nav,
 } from "./navbar.style";
+import { RootState } from "@/type";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);

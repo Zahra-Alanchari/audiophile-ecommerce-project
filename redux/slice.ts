@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchgetAllProduct } from "./action";
-import { RootState } from "@/type/type";
+import { RootState } from "@/type";
 
 const initialState: RootState["product"] = {
   product: [],
